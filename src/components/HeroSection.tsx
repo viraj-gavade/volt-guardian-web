@@ -70,7 +70,7 @@ const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-4 text-lg backdrop-blur-sm"
+              className="border-white/30 text-black hover:bg-white/10 hover:border-white/50 px-8 py-4 text-lg backdrop-blur-sm"
             >
               Get a Quote
             </Button>
