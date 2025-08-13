@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				industrial: {
+					navy: 'hsl(var(--industrial-navy))',
+					charcoal: 'hsl(var(--industrial-charcoal))',
+					steel: 'hsl(var(--industrial-steel))',
+					orange: 'hsl(var(--industrial-orange))',
+					'orange-dark': 'hsl(var(--industrial-orange-dark))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
