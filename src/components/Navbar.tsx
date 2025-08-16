@@ -9,9 +9,10 @@ const Navbar = () => {
 
   const navigationItems = [
     { name: "Home", href: "#home" },
-    { name: "Products", href: "#products" },
     { name: "About Us", href: "#about" },
     { name: "Contact", href: "#contact" },
+    { name: "Services", href: "#Services" },
+    { name: "Events", href: "#Events" }
   ];
 
   const scrollToSection = (href: string) => {
@@ -40,7 +41,7 @@ const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="text-lg font-medium text-black-600 hover:text-black-900 transition-colors text-left"
               >
                 {item.name}
               </button>
@@ -52,7 +53,8 @@ const Navbar = () => {
             <Button 
               variant="default"
               className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
+              onClick={() => scrollToSection("#contact")}>
+              
               Get a Quote
             </Button>
           </div>
