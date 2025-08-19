@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Zap } from "lucide-react";
@@ -9,13 +10,19 @@ const Navbar = () => {
 
   const navigationItems = [
     { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
+    { name: "About Us", href: "#about" }, 
     { name: "Contact", href: "#contact" },
     { name: "Services", href: "#Services" },
     { name: "Events", href: "#Events" }
   ];
 
+  const navigate = useNavigate();
   const scrollToSection = (href: string) => {
+    if (href === "#about") {
+      navigate("/about");
+      setIsOpen(false);
+      return;
+    }
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

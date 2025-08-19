@@ -32,7 +32,7 @@ const Footer = () => {
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-r from-accent to-accent/80">
                 <Zap className="h-5 w-5 text-accent-foreground" />
               </div>
-              <span className="text-xl font-bold">PowerGen</span>
+              <span className="text-xl font-bold">Triratna power</span>
             </div>
             <p className="text-industrial-steel text-sm leading-relaxed">
               Leading provider of reliable oil-based electricity generators for commercial, 
@@ -69,7 +69,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Products */}
+          {/* Products 
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Our Products</h3>
             <ul className="space-y-2">
@@ -84,7 +84,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div>  */}
 
           {/* Contact Info */}
           <div className="space-y-4">
@@ -113,7 +113,7 @@ const Footer = () => {
         <div className="border-t border-industrial-charcoal mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-industrial-steel text-sm">
-              © 2024 PowerGen. All rights reserved.
+              © 2024 Triratna Power. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-industrial-steel hover:text-accent transition-colors text-sm">
