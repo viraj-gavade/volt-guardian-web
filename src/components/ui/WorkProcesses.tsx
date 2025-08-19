@@ -56,7 +56,7 @@ function FeatureCards(){
                     <div className="p-4 ">
                       <feature.icon  />
                     </div>
-                    <h3 className="text-4xl font-semibold text-black">{feature.title}</h3>
+                    <h3 className="text-4xl text-black">{feature.title}</h3>
                   <p className=" text-5xl-sm text-gray-800 ">{feature.description}</p>
                 </div>
               </div>

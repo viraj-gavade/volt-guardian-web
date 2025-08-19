@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -16,10 +16,34 @@ const Navbar = () => {
     { name: "Events", href: "#Events" }
   ];
 
+  const servicesPages = [
+    { name: "Page1", path: "/page1" },
+    { name: "Page2", path: "/page2" },
+    { name: "Page3", path: "/page3" },
+    { name: "Page4", path: "/page4" },
+  ];
+
+  const [servicesDropdown, setServicesDropdown] = useState(false);
+  const servicesDropdownTimeout = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
   const scrollToSection = (href: string) => {
+    if (href === "#home") {
+      navigate("/home");
+      setIsOpen(false);
+      return;
+    }
     if (href === "#about") {
       navigate("/about");
+      setIsOpen(false);
+      return;
+    }
+    if (href === "#contact") {
+      navigate("/contact");
+      setIsOpen(false);
+      return;
+    }
+    if (href === "#Services") {
+      navigate("/Services");
       setIsOpen(false);
       return;
     }
@@ -44,15 +68,56 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-lg font-medium text-black-600 hover:text-black-900 transition-colors text-left"
-              >
-                {item.name}
-              </button>
-            ))}
+            {navigationItems.map((item) =>
+              item.name === "Services" ? (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (servicesDropdownTimeout.current) {
+                      clearTimeout(servicesDropdownTimeout.current);
+                      servicesDropdownTimeout.current = null;
+                    }
+                    setServicesDropdown(true);
+                  }}
+                  onMouseLeave={() => {
+                    servicesDropdownTimeout.current = setTimeout(() => {
+                      setServicesDropdown(false);
+                    }, 400); // 400ms delay before closing
+                  }}
+                >
+                  <button
+                    className="text-lg font-medium text-black-600 hover:text-black-900 transition-colors text-left"
+                  >
+                    {item.name}
+                  </button>
+                  <div
+                    className={`absolute left-0 mt-2 min-w-[140px] z-50 bg-white border rounded shadow-lg transition-all duration-300 ${servicesDropdown ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}
+                    style={{
+                      transformOrigin: "top left"
+                    }}
+                  >
+                    {servicesPages.map((page) => (
+                      <button
+                        key={page.name}
+                        onClick={() => { navigate(page.path); setIsOpen(false); setServicesDropdown(false); }}
+                        className="block w-full text-left px-4 py-2 text-black-600 hover:bg-accent hover:text-accent-foreground transition-colors"
+                      >
+                        {page.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-lg font-medium text-black-600 hover:text-black-900 transition-colors text-left"
+                >
+                  {item.name}
+                </button>
+              )
+            )}
           </div>
 
           {/* CTA Button (Desktop) */}
