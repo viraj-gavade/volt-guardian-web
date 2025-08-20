@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/About";
 import { Contact } from "lucide-react";
 import Services from "./pages/Services";
+import ContactUs from "./pages/Contact";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
@@ -26,7 +27,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/home" element={<Index />} />
-          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Contact" element={<ContactUs />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/page1" element={<Page1 />} />
           <Route path="/page2" element={<Page2 />} />

@@ -1,12 +1,13 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import AboutSection2 from "@/components/AboutSection2";
+import AboutSection2 from "@/components/ui/AboutSection2";
 import OurClients from "@/components/ui/OurClients";
 import TeamSection from "@/components/ui/TeamSection";
 import FAQSection from "@/components/ui/FAQSection";
-import ChooseUsSection from "@/components/ChooseUs";
+import ChooseUsSection from "@/components/ui/ChooseUs";
 import Gallery from "@/components/ui/Gallery";
+import ScrollToTopButton from "@/components/ui/ScrollToTop";
 
 const AboutUs = () => {
   return (
@@ -32,6 +33,7 @@ const AboutUs = () => {
           </div>
         </section>
       </main>
+      <ScrollToTopButton />
       <Footer />
     </div>
   );

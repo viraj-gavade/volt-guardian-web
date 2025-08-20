@@ -1,11 +1,12 @@
 import { Zap, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
     { name: "Home", href: "#home" },
-    { name: "Products", href: "#products" },
     { name: "About Us", href: "#about" },
     { name: "Contact", href: "#contact" },
+    { name: "Events", href: "#Events" },
   ];
 
   const products = [
@@ -22,6 +23,7 @@ const Footer = () => {
     { icon: Instagram, href: "#", label: "Instagram" },
   ];
 
+  const navigate = useNavigate();
   return (
     <footer className="bg-industrial-navy text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -58,12 +60,23 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-industrial-steel hover:text-accent transition-colors text-sm"
+                  <button
+                    onClick={() => {
+                      if (link.name === "Home") {
+                        navigate("/home");
+                        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                      } else if (link.name === "About Us") {
+                        navigate("/about");
+                      } else if (link.name === "Contact") {
+                        navigate("/contact");
+                      } else if (link.name === "Events") {
+                        navigate("/Events");
+                      }
+                    }}
+                    className="text-industrial-steel hover:text-accent transition-colors text-sm bg-transparent border-none p-0 cursor-pointer"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

@@ -29,6 +29,7 @@ const Navbar = () => {
   const scrollToSection = (href: string) => {
     if (href === "#home") {
       navigate("/home");
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       setIsOpen(false);
       return;
     }
@@ -60,9 +61,18 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-r from-accent to-accent/80">
+            <button
+              className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-r from-accent to-accent/80"
+              onClick={() => {
+                navigate("/home");
+                window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+                setIsOpen(false);
+              }}
+              aria-label="Go to Home"
+              type="button"
+            >
               <Zap className="h-5 w-5 text-accent-foreground" />
-            </div>
+            </button>
             <span className="text-xl font-bold text-foreground">PowerGen</span>
           </div>
 
@@ -87,7 +97,7 @@ const Navbar = () => {
                   }}
                 >
                   <button
-                    className="text-lg font-medium text-black-600 hover:text-black-900 transition-colors text-left"
+                    className="text-lg font-medium text-gray-600 hover:text-gray-900 transition-colors text-left"
                   >
                     {item.name}
                   </button>
@@ -101,7 +111,7 @@ const Navbar = () => {
                       <button
                         key={page.name}
                         onClick={() => { navigate(page.path); setIsOpen(false); setServicesDropdown(false); }}
-                        className="block w-full text-left px-4 py-2 text-black-600 hover:bg-accent hover:text-accent-foreground transition-colors"
+                        className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-accent-foreground transition-colors"
                       >
                         {page.name}
                       </button>

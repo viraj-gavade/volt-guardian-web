@@ -2,6 +2,7 @@ import ServiceSection from "@/components/ui/ServiceSection";
 import WorkProcesses from "@/components/ui/WorkProcesses";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollToTopButton from "@/components/ui/ScrollToTop";
 
 function Services() {
   return (
@@ -55,6 +56,7 @@ function Services() {
   </div>
 </div>
         </section>
+        <ScrollToTopButton />
       <Footer />
     </div>
   );

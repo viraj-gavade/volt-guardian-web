@@ -9,6 +9,8 @@ import HomeservicesAndWhy from "@/components/ui/Homeservicesandwhy";
 import OurClients from "@/components/ui/OurClients";
 import TeamSection from "@/components/ui/TeamSection";
 import FAQSection from "@/components/ui/FAQSection";
+import ScrollToTopButton from "@/components/ui/ScrollToTop";
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -28,13 +30,7 @@ const Index = () => {
           <div className="text-center p-12">
             <h2 className="text-4xl font-bold mb-4">Reliable & Affordable Energy!</h2>
             <h1 className="text-4xl font-bold mb-4">Our Work Process</h1>
-            <WorkProcesses/>  
-          </div>
-        </section>
-        <section id="events" className="min-h-screen flex items-center justify-center bg-background">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold mb-4">Events</h2>
-            <p className="text-xl text-muted-foreground">Coming soon - See our upcoming events</p>
+            <WorkProcesses/>          
             <HomeAboutUs />
             <HomeservicesAndWhy />
             <OurClients />
@@ -43,6 +39,7 @@ const Index = () => {
           </div>
         </section>
       </main>
+      <ScrollToTopButton />
       <Footer />
     </div>
   );
