@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Booking</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    form { max-width: 400px; margin: auto; }
+    label { display: block; margin-top: 1em; }
+    input, select, textarea { width: 100%; padding: 0.5em; margin-top: 0.2em; }
+    button { margin-top: 1em; padding: 0.7em 1.5em; }
+  </style>
+</head>
+<body>
+  <h2>Create Booking</h2>
+  <form action="/api/bookings" method="POST">
+    <label>First Name
+      <input type="text" name="firstName" required>
+    </label>
+    <label>Last Name
+      <input type="text" name="lastName" required>
+    </label>
+    <label>Company Name
+      <input type="text" name="companyName">
+    </label>
+    <label>Phone Number
+      <input type="text" name="phoneNumber" required>
+    </label>
+    <label>Email
+      <input type="email" name="email" required>
+    </label>
+    <label>Address
+      <input type="text" name="address" required>
+    </label>
+    <label>Service Type
+      <select name="serviceType" required>
+        <option value="Consulting">Consulting</option>
+        <option value="Repairing">Repairing</option>
+      </select>
+    </label>
+    <label>Date
+      <input type="date" name="date" required>
+    </label>
+    <label>Time
+      <input type="time" name="timeSelector" required>
+    </label>
+    <label>Additional Notes
+      <textarea name="additionalNotes"></textarea>
+    </label>
+    <button type="submit">Book Now</button>
+  </form>
+</body>
+</html>
