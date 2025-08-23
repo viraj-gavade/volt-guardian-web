@@ -3,12 +3,12 @@ import { CheckCircle, Handshake } from "lucide-react";
 
 const AboutUs: FC = () => {
   return (
-    <section className="bg-white py-16 px-6 md:px-12 lg:px-20">
+    <section className="bg-white py-5 px-6 md:px-12 lg:px-20">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Left side - Image */}
         <div className="relative w-100">
           <img
-            src="src/assets/team.webp" // make sure you put your image in public/images/team.webp
+            src="src/assets/team.webp" 
             alt="Our Team"
             className="rounded-lg shadow-lg w-full h-auto"
           />

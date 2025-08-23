@@ -2,12 +2,13 @@ import { useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileServicesDropdown, setMobileServicesDropdown] = useState(false);
 
   const navigationItems = [
   { name: "Home", href: "/home" },
@@ -141,6 +142,43 @@ const Navbar = () => {
                 <div className="flex flex-col space-y-6 mt-8">
                   {navigationItems.map((item) => {
                     const isActive = location.pathname === item.href;
+                    
+                    if (item.name === "Services") {
+                      return (
+                        <div key={item.name} className="space-y-2">
+                          <button
+                            onClick={() => setMobileServicesDropdown(!mobileServicesDropdown)}
+                            className={`flex items-center justify-between w-full text-lg font-medium text-foreground hover:text-accent transition-colors text-left ${isActive ? 'border-b-2 border-accent text-accent' : ''}`}
+                          >
+                            {item.name}
+                            {mobileServicesDropdown ? (
+                              <ChevronUp className="h-4 w-4" />
+                            ) : (
+                              <ChevronDown className="h-4 w-4" />
+                            )}
+                          </button>
+                          
+                          {mobileServicesDropdown && (
+                            <div className="pl-4 space-y-3 border-l-2 border-gray-200">
+                              {servicesPages.map((page) => (
+                                <button
+                                  key={page.name}
+                                  onClick={() => {
+                                    navigate(page.path);
+                                    setIsOpen(false);
+                                    setMobileServicesDropdown(false);
+                                  }}
+                                  className={`block w-full text-left text-base text-gray-600 hover:text-accent transition-colors ${location.pathname === page.path ? 'text-accent font-medium' : ''}`}
+                                >
+                                  {page.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+                    
                     return (
                       <button
                         key={item.name}
