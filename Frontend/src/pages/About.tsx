@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/DieselGeneratorHeroSection";
 import Footer from "@/components/Footer";
 import AboutSection2 from "@/components/ui/AboutSection2";
 import OurClients from "@/components/ui/OurClients";

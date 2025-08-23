@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/DieselGeneratorHeroSection";
 import Footer from "@/components/Footer";
 import FeatureCards from "@/components/ui/FeatureCards";
 import WorkProcesses from "@/components/ui/WorkProcesses";
