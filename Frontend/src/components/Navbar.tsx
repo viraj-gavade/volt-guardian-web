@@ -124,9 +124,22 @@ const Navbar = () => {
               variant="default"
               className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={() => {
-                const bookingSection = document.getElementById('booking');
-                if (bookingSection) {
-                  bookingSection.scrollIntoView({ behavior: 'smooth' });
+                // If we're already on the home page, just scroll to booking
+                if (location.pathname === '/home' || location.pathname === '/') {
+                  const bookingSection = document.getElementById('booking');
+                  if (bookingSection) {
+                    bookingSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                } else {
+                  // Navigate to home page first, then scroll to booking
+                  navigate('/home');
+                  // Wait for navigation to complete, then scroll
+                  setTimeout(() => {
+                    const bookingSection = document.getElementById('booking');
+                    if (bookingSection) {
+                      bookingSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
                 }
               }}>
               
@@ -197,11 +210,27 @@ const Navbar = () => {
                   <Button 
                     className="mt-6 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-semibold shadow-lg"
                     onClick={() => {
-                      const bookingSection = document.getElementById('booking');
-                      if (bookingSection) {
-                        bookingSection.scrollIntoView({ behavior: 'smooth' });
-                      }
                       setIsOpen(false);
+                      
+                      // If we're already on the home page, just scroll to booking
+                      if (location.pathname === '/home' || location.pathname === '/') {
+                        setTimeout(() => {
+                          const bookingSection = document.getElementById('booking');
+                          if (bookingSection) {
+                            bookingSection.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 300); // Wait for mobile menu to close
+                      } else {
+                        // Navigate to home page first, then scroll to booking
+                        navigate('/home');
+                        // Wait for navigation to complete, then scroll
+                        setTimeout(() => {
+                          const bookingSection = document.getElementById('booking');
+                          if (bookingSection) {
+                            bookingSection.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 400);
+                      }
                     }}
                   >
                     Get a Quote
