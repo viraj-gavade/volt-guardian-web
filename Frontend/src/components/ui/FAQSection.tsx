@@ -43,16 +43,16 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-16 m-8">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="bg-gray-100 py-8 sm:py-16 m-4 sm:m-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
         {/* Left FAQ Section */}
         <div>
-          <p className="text-blue-700 font-semibold uppercase text-left">Some FAQ’s</p>
-          <h2 className="mt-2 text-left font-bold text-gray-900 sm:text-4xl">
+          <p className="text-blue-700 font-semibold uppercase text-left text-sm sm:text-base">Some FAQ's</p>
+          <h2 className="mt-2 text-left font-bold text-gray-900 text-2xl sm:text-4xl">
             Strengthening Tomorrow <br /> with Smarter Power.
           </h2>
 
-          <div className="mt-8 space-y-4">
+          <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}
@@ -62,13 +62,13 @@ const FAQSection: React.FC = () => {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex justify-between items-center p-4 text-left text-lg font-medium"
+                  className="w-full flex justify-between items-center p-3 sm:p-4 text-left text-base sm:text-lg font-medium"
                 >
                   {faq.question}
                   {openIndex === index ? (
-                    <Minus className="h-5 w-5" />
+                    <Minus className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 ml-2" />
                   ) : (
-                    <Plus className="h-5 w-5" />
+                    <Plus className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 ml-2" />
                   )}
                 </button>
                 <div
@@ -76,7 +76,7 @@ const FAQSection: React.FC = () => {
                     openIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                   } bg-white text-gray-700`}
                 >
-                  <p className="p-4 text-sm">{faq.answer}</p>
+                  <p className="p-3 sm:p-4 text-sm">{faq.answer}</p>
                 </div>
               </div>
             ))}
@@ -84,11 +84,11 @@ const FAQSection: React.FC = () => {
         </div>
 
         {/* Right Image Section */}
-        <div className="relative">
+        <div className="relative mt-8 lg:mt-0">
           <img
             src="src/assets/faqgenerator.png"
             alt="Generator"
-            className="w-full h-[400px] object-cover rounded-l-[100px]"
+            className="w-full h-[250px] sm:h-[400px] object-cover rounded-l-[50px] sm:rounded-l-[100px]"
           />
         </div>
       </div>

@@ -45,19 +45,19 @@ function FeatureCards(){
 
         <>   
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-6 sm:mt-10">
             
             {features.map((feature, index) => (
               <div
                 key={index}
-                className=""
+                className="bg-white p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="p-4 ">
+                <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
+                    <div className="p-2 sm:p-4">
                       <feature.icon  />
                     </div>
-                    <h3 className="text-4xl text-black">{feature.title}</h3>
-                  <p className=" text-5xl-sm text-gray-800 ">{feature.description}</p>
+                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black leading-tight">{feature.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>
               </div>
             ))}

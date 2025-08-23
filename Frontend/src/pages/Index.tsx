@@ -20,7 +20,7 @@ const Index = () => {
         <HeroSection />
         {/* Placeholder sections for future development */}
         
-        <section id="about" className="flex items-center justify-center bg-background pt-20 pb-20">
+        <section id="about" className="flex items-center justify-center bg-background pt-10 pb-10">
           <div className="text-center">
             <h3 className="text-xl font mb-4">About Our Company</h3>
             <h1 className="text-4xl font mb-4">Create And Convert</h1>

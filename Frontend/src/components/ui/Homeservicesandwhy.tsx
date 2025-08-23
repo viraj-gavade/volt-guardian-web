@@ -13,23 +13,23 @@ const ServiceCard: FC<ServiceCardProps> = ({ icon, title, points, image }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition">
       {/* Top content */}
-      <div className="p-6 flex-1">
-        <div className="text-green-600 mb-4">{icon}</div>
-        <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
-        <ul className="space-y-2 mb-4">
+      <div className="p-4 sm:p-6 flex-1">
+        <div className="text-green-600 mb-3 sm:mb-4">{icon}</div>
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{title}</h3>
+        <ul className="space-y-1 sm:space-y-2 mb-3 sm:mb-4">
           {points.map((point) => (
-            <li key={point} className="flex items-center text-gray-600">
+            <li key={point} className="flex items-center text-gray-600 text-sm sm:text-base">
               <span className="text-green-500 mr-2">•</span>
               {point}
             </li>
           ))}
         </ul>
-        <button className="flex items-center text-green-600 font-semibold hover:underline">
-          <PlusCircle className="w-5 h-5 mr-1" /> Read More
+        <button className="flex items-center text-green-600 font-semibold hover:underline text-sm sm:text-base">
+          <PlusCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> Read More
         </button>
       </div>
       {/* Image */}
-      <img src={image} alt={title} className="w-full h-56 object-cover" />
+      <img src={image} alt={title} className="w-full h-40 sm:h-56 object-cover" />
     </div>
   );
 };
@@ -39,22 +39,22 @@ const HomeservicesAndWhy: FC = () => {
   return (
     <div className="bg-gray-50">
       {/* Services Section */}
-      <section className="py-16 px-6 md:px-12 lg:px-20 border-black">
-        <div className="text-center mb-12">
-          <h4 className="text-m font-semibold tracking-wide text-blue-800 uppercase">
+      <section className="py-8 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 border-black">
+        <div className="text-center mb-8 sm:mb-12">
+          <h4 className="text-sm sm:text-base font-semibold tracking-wide text-blue-800 uppercase">
             Our Services
           </h4>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Seamless Power Solutions for Every Need.
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
           <ServiceCard
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-12 h-12"
+                className="w-10 h-10 sm:w-12 sm:h-12"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -80,7 +80,7 @@ const HomeservicesAndWhy: FC = () => {
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-12 h-12"
+                className="w-10 h-10 sm:w-12 sm:h-12"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -102,7 +102,7 @@ const HomeservicesAndWhy: FC = () => {
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-12 h-12"
+                className="w-10 h-10 sm:w-12 sm:h-12"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -127,8 +127,8 @@ const HomeservicesAndWhy: FC = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-gray py-16 px-6 md:px-12 lg:px-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="bg-gray py-8 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
           {/* Left Side - Image */}
           <div>
             <img
@@ -140,13 +140,13 @@ const HomeservicesAndWhy: FC = () => {
 
           {/* Right Side - Text */}
           <div className = "items-center" >
-            <h4 className="text-left font-semibold tracking-wide text-blue-800 uppercase " >
+            <h4 className="text-left font-semibold tracking-wide text-blue-800 uppercase text-sm sm:text-base" >
               Why Choose Us
             </h4>
-            <h2 className="mt-2 text-left text-5xl md:text-6xl font text-gray-900 leading-snug">
+            <h2 className="mt-2 text-left text-2xl sm:text-3xl md:text-5xl lg:text-6xl font text-gray-900 leading-snug">
               Reliable and Sustainable Power Solutions.
             </h2>
-            <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">
               Triratna Power Solutions offers tailored, high-quality power
               solutions with 7+ years of expertise. From diesel generators to
               solar projects, our authorized ESCORT KUBOTA dealership ensures
@@ -154,15 +154,15 @@ const HomeservicesAndWhy: FC = () => {
             </p>
 
             {/* Bullet Points */}
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
               {[
                 "7+ Years of Expertise",
                 "Authorized ESCORT KUBOTA Dealer",
                 "Sustainable & Cost-Effective",
               ].map((item) => (
                 <li key={item} className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="font-semibold text-gray-800">{item}</span>
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                  <span className="font-semibold text-gray-800 text-sm sm:text-base">{item}</span>
                 </li>
               ))}
             </ul>

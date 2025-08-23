@@ -41,7 +41,7 @@ function HeroSection(){
           <div className="hidden md:flex justify-center">
             <Button
               variant="default"
-              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-8 py-4 h-auto"
               onClick={() => {
                 const bookingSection = document.getElementById('booking');
                 if (bookingSection) {

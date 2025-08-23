@@ -90,7 +90,7 @@ function FeatureCards(){
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-black/10 rounded-lg p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                className="bg-white/10 rounded-lg p-6 border border-white/20 hover:shadow-md transition-shadow transition-all duration-300"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                     <div className="p-4">
