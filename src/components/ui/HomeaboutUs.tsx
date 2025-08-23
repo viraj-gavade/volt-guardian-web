@@ -5,6 +5,8 @@ const AboutUs: FC = () => {
   return (
     <section className="bg-white py-16 px-6 md:px-12 lg:px-20">
       <div className="grid md:grid-cols-2 gap-12 items-center">
+        
+        
         {/* Left side - Image */}
         <div className="relative w-100">
           <img
@@ -30,9 +32,9 @@ const AboutUs: FC = () => {
           <h4 className="text-left font-semibold tracking-wide text-blue-800 uppercase">
             About Us
           </h4>
-          <h2 className="mt-2 text-left text-5xl md:text-6xl font text-gray-900 leading-snug">
+            <h2 className="mt-2 text-left text-3xl md:text-5xl lg:text-6xl font text-gray-900 leading-snug">
             Empowering Your Needs with Precision<br />and Excellence.
-          </h2>
+            </h2>
           <p className="mt-4 text-gray-600 text-lg leading-relaxed">
             With over 7 years of experience, Triratna Power Solution Pvt. Ltd.
             is a trusted name in Generator Sales, Service, and Rental. Based in
@@ -59,9 +61,11 @@ const AboutUs: FC = () => {
 
           {/* Button */}
           <div className="mt-8 text-left">
-            <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md transition " >
+            <a href="/about">
+              <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md transition">
               Learn More About Us
-            </button>
+              </button>
+            </a>
           </div>
         </div>
       </div>

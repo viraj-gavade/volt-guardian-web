@@ -98,6 +98,10 @@ const Navbar = () => {
                 >
                   <button
                     className="text-lg font-medium text-gray-600 hover:text-gray-900 transition-colors text-left"
+                    onClick={() => {
+                      navigate("/Services");
+                      setIsOpen(false);
+                    }}
                   >
                     {item.name}
                   </button>

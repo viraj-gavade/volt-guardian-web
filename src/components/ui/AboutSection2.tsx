@@ -57,11 +57,13 @@ const AboutUs: FC = () => {
             ))}
           </ul>
 
-          {/* Button */}
+           {/* Button */}
           <div className="mt-8 text-left">
-            <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md transition " >
-              Learn More About Us
-            </button>
+            <a href="/Services">
+              <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md transition">
+              Explore Our More Services 
+              </button>
+            </a>
           </div>
         </div>
       </div>
