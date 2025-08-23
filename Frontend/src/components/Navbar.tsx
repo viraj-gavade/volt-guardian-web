@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: "Page2", path: "/page2" },
     { name: "Page3", path: "/page3" },
     { name: "Page4", path: "/page4" },
+    { name: "Page5", path: "/page5" },
   ];
 
   const [servicesDropdown, setServicesDropdown] = useState(false);
