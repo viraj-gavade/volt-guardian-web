@@ -3,6 +3,7 @@ import { ArrowRight, Shield, Zap, Clock, Handshake, HardHat, PackageOpen } from 
 import heroImage from "@/assets/hero-generator.jpg";
 
 
+
 function HeroSection(){
   return (
     <>
@@ -36,20 +37,34 @@ function HeroSection(){
           </p>
 
       
-
-         
-
+          {/* CTA Button (Desktop) */}
+          <div className="hidden md:flex justify-center">
+            <Button
+              variant="default"
+              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => {
+                const bookingSection = document.getElementById('booking');
+                if (bookingSection) {
+                  bookingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Get a Quote
+            </Button>
+          </div>
+        </div>
       </div>
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
           <div className="animate-bounce">
             <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            
               <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </div>
       </div>
-       </div>
+       
     </section>
 </>
   );

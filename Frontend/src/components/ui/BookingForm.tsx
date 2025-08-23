@@ -43,8 +43,8 @@ const BookingForm: React.FC<BookingFormProps> = ({ className }) => {
   }>({ type: null, message: '' });
 
   const serviceTypes = [
-    'Repairing',
-    'Consulting'
+    'Consulting',
+    'Repairing'
   ];
 
   const timeSlots = [
