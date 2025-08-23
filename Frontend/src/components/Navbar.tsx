@@ -1,19 +1,20 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   const navigationItems = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" }, 
-    { name: "Contact", href: "#contact" },
-    { name: "Services", href: "#Services" },
-    { name: "Events", href: "#Events" }
+  { name: "Home", href: "/home" },
+  { name: "About Us", href: "/about" }, 
+  { name: "Contact", href: "/contact" },
+  { name: "Services", href: "/Services" },
+  { name: "Events", href: "/Events" }
   ];
 
   const servicesPages = [
@@ -27,32 +28,8 @@ const Navbar = () => {
   const servicesDropdownTimeout = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
   const scrollToSection = (href: string) => {
-    if (href === "#home") {
-      navigate("/home");
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      setIsOpen(false);
-      return;
-    }
-    if (href === "#about") {
-      navigate("/about");
-      setIsOpen(false);
-      return;
-    }
-    if (href === "#contact") {
-      navigate("/contact");
-      setIsOpen(false);
-      return;
-    }
-    if (href === "#Services") {
-      navigate("/Services");
-      setIsOpen(false);
-      return;
-    }
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsOpen(false);
+  navigate(href);
+  setIsOpen(false);
   };
 
   return (
@@ -78,60 +55,65 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) =>
-              item.name === "Services" ? (
-                <div
-                  key={item.name}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (servicesDropdownTimeout.current) {
-                      clearTimeout(servicesDropdownTimeout.current);
-                      servicesDropdownTimeout.current = null;
-                    }
-                    setServicesDropdown(true);
-                  }}
-                  onMouseLeave={() => {
-                    servicesDropdownTimeout.current = setTimeout(() => {
-                      setServicesDropdown(false);
-                    }, 400); // 400ms delay before closing
-                  }}
-                >
-                  <button
-                    className="text-lg font-medium text-gray-600 hover:text-gray-900 transition-colors text-left"
-                    onClick={() => {
-                      navigate("/Services");
-                      setIsOpen(false);
+            {navigationItems.map((item) => {
+              const isActive = location.pathname === item.href;
+              if (item.name === "Services") {
+                return (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => {
+                      if (servicesDropdownTimeout.current) {
+                        clearTimeout(servicesDropdownTimeout.current);
+                        servicesDropdownTimeout.current = null;
+                      }
+                      setServicesDropdown(true);
                     }}
+                    onMouseLeave={() => {
+                      servicesDropdownTimeout.current = setTimeout(() => {
+                        setServicesDropdown(false);
+                      }, 400);
+                    }}
+                  >
+                    <button
+                      className={`text-lg font-medium text-gray-600 hover:text-gray-900 transition-colors text-left ${isActive ? 'border-b-2 border-accent text-accent' : ''}`}
+                      onClick={() => {
+                        navigate("/Services");
+                        setIsOpen(false);
+                      }}
+                    >
+                      {item.name}
+                    </button>
+                    <div
+                      className={`absolute left-0 mt-2 min-w-[140px] z-50 bg-white border rounded shadow-lg transition-all duration-300 ${servicesDropdown ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}
+                      style={{
+                        transformOrigin: "top left"
+                      }}
+                    >
+                      {servicesPages.map((page) => (
+                        <button
+                          key={page.name}
+                          onClick={() => { navigate(page.path); setIsOpen(false); setServicesDropdown(false); }}
+                          className={`block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-accent-foreground transition-colors ${location.pathname === page.path ? 'bg-accent text-accent-foreground' : ''}`}
+                        >
+                          {page.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`text-lg font-medium text-black-600 hover:text-black-900 transition-colors text-left ${isActive ? 'border-b-2 border-accent text-accent' : ''}`}
                   >
                     {item.name}
                   </button>
-                  <div
-                    className={`absolute left-0 mt-2 min-w-[140px] z-50 bg-white border rounded shadow-lg transition-all duration-300 ${servicesDropdown ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}
-                    style={{
-                      transformOrigin: "top left"
-                    }}
-                  >
-                    {servicesPages.map((page) => (
-                      <button
-                        key={page.name}
-                        onClick={() => { navigate(page.path); setIsOpen(false); setServicesDropdown(false); }}
-                        className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-accent-foreground transition-colors"
-                      >
-                        {page.name}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-lg font-medium text-black-600 hover:text-black-900 transition-colors text-left"
-                >
-                  {item.name}
-                </button>
-              )
-            )}
+                );
+              }
+            })}
           </div>
 
           {/* CTA Button (Desktop) */}
@@ -156,15 +138,18 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="flex flex-col space-y-6 mt-8">
-                  {navigationItems.map((item) => (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-lg font-medium text-foreground hover:text-accent transition-colors text-left"
-                    >
-                      {item.name}
-                    </button>
-                  ))}
+                  {navigationItems.map((item) => {
+                    const isActive = location.pathname === item.href;
+                    return (
+                      <button
+                        key={item.name}
+                        onClick={() => scrollToSection(item.href)}
+                        className={`text-lg font-medium text-foreground hover:text-accent transition-colors text-left ${isActive ? 'border-b-2 border-accent text-accent' : ''}`}
+                      >
+                        {item.name}
+                      </button>
+                    );
+                  })}
                   <Button 
                     className="mt-6 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-semibold shadow-lg"
                     onClick={() => setIsOpen(false)}
