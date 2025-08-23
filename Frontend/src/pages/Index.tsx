@@ -10,6 +10,7 @@ import OurClients from "@/components/ui/OurClients";
 import TeamSection from "@/components/ui/TeamSection";
 import FAQSection from "@/components/ui/FAQSection";
 import ScrollToTopButton from "@/components/ui/ScrollToTop";
+import BookingForm from "@/components/ui/BookingForm";
 
 const Index = () => {
   return (
@@ -36,6 +37,19 @@ const Index = () => {
             <OurClients />
             <TeamSection /> 
             <FAQSection />  
+          </div>
+        </section>
+        
+        {/* Booking Section */}
+        <section id="booking" className="bg-gray-50 py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Book your power solution consultation today. Our expert team is ready to help you find the perfect energy solution for your needs.
+              </p>
+            </div>
+            <BookingForm />
           </div>
         </section>
       </main>
