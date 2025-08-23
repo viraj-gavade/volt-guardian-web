@@ -7,14 +7,11 @@ import heroImage from "@/assets/working-1.jpg";
 function DieselGeneratorHeroSection(){
   return (
     <>
-    <section id="home" className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-[350px] flex items-center justify-center bg-background">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Industrial oil-powered electricity generator"
-          className="w-full h-full object-cover"
-        />
+        					<img src={heroImage} alt="Generator Repairs Hero" className="w-full h-[350px] object-cover" />
+
         <div className="absolute inset-0 bg-gradient-to-r from-industrial-navy/90 via-industrial-navy/70 to-industrial-charcoal/60" />
       </div>
 

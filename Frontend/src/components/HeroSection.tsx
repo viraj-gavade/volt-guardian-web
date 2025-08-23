@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, Clock, Handshake, HardHat, PackageOpen } from "lucide-react";
-import heroImage from "@/assets/hero-generator.jpg";
+import heroImage from '@/assets/hero-generator.jpg';
 
 
 

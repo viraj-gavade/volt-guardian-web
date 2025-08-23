@@ -15,13 +15,14 @@ import TeamSection from "@/components/ui/TeamSection";
 import FAQSection from "@/components/ui/FAQSection";
 import ScrollToTopButton from "@/components/ui/ScrollToTop";
 import BookingForm from "@/components/ui/BookingForm";
+import DieselGeneratorHeroSection from "@/components/DieselGeneratorHeroSection";
 const Page1 = () => {
     return (
         <>
          <div className="min-h-screen bg-background p-0 m-0">
               <Navbar />
               <main>
-                <HeroSection />
+                <DieselGeneratorHeroSection />
                 <DieselGeneratorInfoSection />
                 <DieselGeneratorFeaturesSection />
                 <DieselGeneratorContactSection />
